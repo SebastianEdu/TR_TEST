@@ -1,0 +1,29 @@
+{% extends 'Turismo_core/base.html'%}
+
+{% block carousel %}
+
+<table>
+	<tr>
+		<th>Codigo Departamento</th>
+		<th>Dormitorios</th>
+		<th>Precio por Dia</th>
+		<th>Opciones</th>
+	</tr>
+
+	{% for i in inventarios %}
+
+	<tr>
+		<td> {{ i.cod_inventario | title}} </td>
+		<td> {{ i.evaluo_obj | title}} </td>
+		<td> {{ i.cod_depa | title}} </td>
+		<!--<td> {{ i.pago_aprobado | title}} </td> -->
+		<td>
+			<a href="{% url 'modificar_inventario' i.cod_inventario %}" class="btn btn-info btn-sm">Modificar</a>
+			<a href="{% url 'eliminar_inventario' i.cod_inventario %}" class="btn btn-danger btn-sm">Eliminar</a>
+		</td>
+	</tr>
+
+	{% endfor %}
+</table>
+
+{% endblock %}

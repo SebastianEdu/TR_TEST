@@ -1,0 +1,29 @@
+{% extends 'Turismo_core/base.html'%}
+
+{% block carousel %}
+
+<table>
+	<tr>
+		<th>Rut</th>
+		<th>Nombre</th>
+		<th>Apellido</th>
+		<th>Correo</th>
+	</tr>
+
+	{% for c in clientes %}
+
+	<tr>
+		<td> {{ c.run | title}} </td>
+		<td> {{ c.nombre | title}} </td>
+		<td> {{ c.apellido_p | title}} </td>
+		<td> {{ c.correo | title}} </td>
+		<td>
+			<a href="{% url 'modificar_cliente' c.run %}" class="btn btn-info btn-sm">Modificar</a>
+			<a href="{% url 'eliminar_cliente' c.run %}" class="btn btn-danger btn-sm">Eliminar</a>
+		</td>
+	</tr>
+
+	{% endfor %}
+</table>
+
+{% endblock %}

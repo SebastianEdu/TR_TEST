@@ -1,0 +1,29 @@
+{% extends 'Turismo_core/base.html'%}
+
+{% block carousel %}
+	{% load static %}
+
+		
+		<form action="" class="formulario_reserva" id = "formulario_reserva">
+			<label for="nombre"> Nombre</label>
+			<input type="text" id="Nombre" name="Nombre">
+
+			<button type="button" id="btnEnviar" class="button">Enviar</button>
+
+		</form>
+	
+	{% for d in departamentos %}
+		<div class="Departamentos"> 
+
+			<h2> Departamentos </h2>
+
+			<h5>{{ d.cod_depa}}</h5>
+
+
+		</div>
+
+	{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'Turismo_core/base.html'%}
+
+{% block carousel %}
+
+<table>
+	<tr>
+		<th>Codigo Departamento</th>
+		<th>Dormitorios</th>
+		<th>Precio por Dia</th>
+		<th>Opciones</th>
+	</tr>
+
+	{% for d in departamentos %}
+
+	<tr>
+		<td> {{ d.cod_depa | title}} </td>
+		<td> {{ d.dormitorios | title}} </td>
+		<td> {{ d.valor_depa_xdia | title}} </td>
+		<td>
+			<a href="{% url 'modificar_departamento' d.cod_depa %}" class="btn btn-info btn-sm">Modificar</a>
+			<a href="{% url 'eliminar_departamento' d.cod_depa %}" class="btn btn-danger btn-sm">Eliminar</a>
+		</td>
+	</tr>
+
+	{% endfor %}
+</table>
+
+{% endblock %}

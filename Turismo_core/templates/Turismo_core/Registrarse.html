@@ -1,0 +1,14 @@
+{% extends 'Turismo_core/base.html'%}
+
+	{% block carousel %}
+		{% load static %}
+
+		<form action="" class="formulario_registro" method="post">
+
+			{% csrf_token %}
+			{{ form }}
+			<button type="submit" id="btnEnviar" class="button">Enviar</button>
+		</form>
+		{{mensaje}}
+
+	{% endblock %}
